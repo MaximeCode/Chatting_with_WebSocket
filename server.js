@@ -3,13 +3,25 @@ const WebSocket = require('ws');
 // Créer un serveur WebSocket sur le port 8080
 const wss = new WebSocket.Server({ port: 8080 });
 
+// Tableau pour stocker l'historique des messages
+const messages = [];
+
 wss.on('connection', (ws) => {
   console.log('Un client est connecté.');
+
+  // Envoyer l'historique des messages au nouveau client
+  ws.send(JSON.stringify({ type: 'history', messages }));
 
   // Lorsque le serveur reçoit un message de l'un des clients
   ws.on('message', (message) => {
     const data = JSON.parse(message);
     console.log(`Message reçu sur le serveur: ${data.message}`);
+
+    // Ajouter le message à l'historique
+    messages.push({
+      message: data.message,
+      color: data.color
+    });
 
     // Diffuser le message à tous les clients connectés
     wss.clients.forEach(client => {
