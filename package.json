@@ -11,5 +11,9 @@
   "description": "",
   "dependencies": {
     "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "gulp": "^5.0.0",
+    "gulp-clean-css": "^4.3.0"
   }
 }
