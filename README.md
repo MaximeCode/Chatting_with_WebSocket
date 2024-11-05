@@ -24,5 +24,12 @@ http://127.0.0.1:5500/
 
 6. Also, you can view the log in your web browser console where i added some sentences to confirm the link between customers and WebSocket Server.
 
+---
+To minify css with glup, use this command to watch the modification and minify in the same time :
+```sh
+glup
+```
+
+Press CTRL + C to stop to minify.
 
 ### Add a star 🌟 if you like my project !
