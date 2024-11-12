@@ -1,18 +1,16 @@
-let gulp = require('gulp');
-let cleanCSS = require('gulp-clean-css');
-// Task to minify css using package cleanCSs
-gulp.task('minify-css', () => {
+const gulp = require('gulp');
+const cleanCSS = require('gulp-clean-css');
+
+// Task to minify CSS using the cleanCSS package
+gulp.task('minify-css', function () {
   // Folder with files to minify
-  return gulp.src('./styles/style.css')
-    //The method pipe() allow you to chain multiple tasks together 
-    //I execute the task to minify the files
-    .pipe(cleanCSS())
-    //I define the destination of the minified files with the method dest
-    .pipe(gulp.dest('./dist/'));
+  return gulp.src('styles/*.css')
+    .pipe(cleanCSS()) // Minify the CSS files
+    .pipe(gulp.dest('dist')); // Destination for minified files
 });
 
-// Default task that will run when `gulp` is executed in the terminal
+// Define a 'default' task that will run when we execute `gulp`
 gulp.task('default', function () {
-  // Use `gulp.watch` to watch for changes and run 'minify-css' when `style.css` is modified
-  gulp.watch('./styles/style.css', gulp.series('minify-css'));
+  // Watch for changes in CSS files in the styles folder
+  gulp.watch('styles/*.css', gulp.series('minify-css'));
 });
