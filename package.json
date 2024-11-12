@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "gulp-cli": "^3.0.0",
     "ws": "^8.18.0"
   },
   "devDependencies": {
