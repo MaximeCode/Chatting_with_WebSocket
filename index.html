@@ -15,16 +15,18 @@
     <h1>Chat WebSocket</h1>
     <div class="d-flex gap-3">
       <p>Votre couleur :</p>
-      <div class="carre"></div>
+      <div class="carre" style="width: 30px; height: 30px; background-color: #ffffff; border: 1px solid #ccc;"></div>
     </div>
-    <div id="messages"></div>
+    <div id="messages" style="border: 1px solid #ccc; padding: 10px; height: 1000px; overflow-y: scroll;"></div>
     <input
       type="text"
       id="messageInput"
-      placeholder="Entrez votre message..." />
+      placeholder="Entrez votre message..."
+      class="form-control" />
     <button class="btn btn-primary" onclick="sendMessage()">Envoyer</button>
+    <button id="clearButton" onclick="clearMessages()">Effacer le chat</button>
 
-    <!-- link to client.js -->
+    <!-- Link to client.js -->
     <script src="./client.js"></script>
   </body>
 </html>
